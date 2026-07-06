@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Power of My English Instinct</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Kalam:wght@400;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+
+  :root{
+    --teal-deep:#173f3b;
+    --teal:#20574f;
+    --teal-soft:#e4f0ec;
+    --marigold:#f2a53c;
+    --marigold-deep:#d97f1e;
+    --berry:#e0607e;
+    --sky:#4fa3c4;
+    --cream:#fffaf1;
+    --ink:#1c2b28;
+    --muted:#6b7a75;
+    --line:#e6e2d6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#e7e2d3;
+    font-family:'Inter','Noto Sans TC',sans-serif;
+    color:var(--ink);
+    display:flex; justify-content:center;
+    padding:32px 12px;
+  }
+  .card{
+    width:100%; max-width:1080px;
+    background:var(--cream);
+    border-radius:26px;
+    overflow:hidden;
+    box-shadow:0 24px 60px -22px rgba(20,40,35,.45);
+  }
+
+  /* ---------------- HERO ---------------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(120% 140% at 100% -10%, #2c6a5f 0%, var(--teal-deep) 55%, #102b27 100%);
+    color:#fff;
+    padding:54px 56px 44px;
+    overflow:hidden;
+    isolation:isolate;
+  }
+  .swoosh{
+    position:absolute; inset:0; z-index:0;
+    background:conic-gradient(from 200deg at 100% 0%, transparent 0deg, rgba(242,165,60,.28) 40deg, transparent 100deg);
+  }
+  .chip{
+    position:absolute; z-index:1;
+    font-family:'Kalam',cursive; font-weight:700; font-size:14px;
+    background:var(--cream); color:var(--teal-deep);
+    padding:7px 14px; border-radius:9px;
+    box-shadow:0 6px 14px -6px rgba(0,0,0,.4);
+    white-space:nowrap;
+  }
+  .chip.c1{ top:18px; right:250px; transform:rotate(-7deg); background:#fff0da; }
+  .chip.c2{ top:96px; right:60px; transform:rotate(6deg); background:#ffe3e9; }
+  .chip.c3{ top:172px; right:230px; transform:rotate(-4deg); }
+  .chip.c4{ bottom:30px; right:120px; transform:rotate(9deg); background:#e2f3fb; }
+
+  .eyebrow{ position:relative; z-index:2; font-size:12.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#ffd9a0; display:flex; gap:8px; align-items:center; }
+  .eyebrow .zh{ color:#f4c98a; font-weight:500; letter-spacing:0; text-transform:none; font-family:'Noto Sans TC',sans-serif; }
+
+  h1{ position:relative; z-index:2; margin:16px 0 4px; font-family:'Fredoka',sans-serif; font-size:52px; font-weight:600; line-height:1.05; max-width:600px; }
+  h1 .zh{ display:block; font-family:'Noto Sans TC',sans-serif; font-size:28px; font-weight:900; color:#ffe3ba; margin-top:8px; }
+
+  .subtitle{ position:relative; z-index:2; font-size:16px; color:#d8ece5; max-width:520px; line-height:1.6; margin-top:16px; }
+  .subtitle .zh{ display:block; font-family:'Noto Sans TC',sans-serif; color:#a9d2c5; margin-top:3px; }
+  .subtitle .hl{ background:var(--marigold); color:#1c2b28; padding:1px 7px; border-radius:6px; font-weight:700; }
+
+  /* ---------------- OVERVIEW STRIP ---------------- */
+  .flow{ display:flex; gap:12px; padding:26px 56px; background:var(--teal-soft); flex-wrap:wrap; }
+  .step{ flex:1 1 160px; min-width:150px; border-radius:16px; padding:16px 18px; text-align:left; position:relative; }
+  .step .num{ font-family:'Fredoka',sans-serif; font-size:26px; font-weight:600; line-height:1; margin-bottom:4px; }
+  .step .en{ font-weight:700; font-size:14.5px; }
+  .step .zh{ font-size:12px; margin-top:3px; font-family:'Noto Sans TC',sans-serif; opacity:.75; }
+  .step.a{ background:#fff; color:var(--teal-deep); border:2px dashed #bcd6cc; }
+  .step.b{ background:var(--marigold); color:#402905; }
+  .step.c{ background:var(--berry); color:#fff; }
+  .arrow{ align-self:center; color:#9db8ae; font-size:22px; padding-top:10px; }
+
+  /* ---------------- BODY ---------------- */
+  .body{ padding:12px 56px 44px; }
+  section{ padding:30px 0; border-bottom:2px dashed var(--line); display:grid; grid-template-columns:56px 1fr; gap:18px; }
+  section:last-of-type{ border-bottom:none; }
+  .icon{
+    width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    font-size:22px; margin-top:2px;
+  }
+  .icon.aims{ background:#fde3ea; }
+  .icon.todo{ background:#e2f3fb; }
+  .icon.people{ background:#fff0da; }
+
+  .label{ display:flex; align-items:baseline; gap:10px; margin-bottom:10px; }
+  .label .en{ font-family:'Fredoka',sans-serif; font-size:19px; font-weight:600; color:var(--teal-deep); }
+  .label .zh{ font-size:13.5px; color:var(--muted); font-family:'Noto Sans TC',sans-serif; }
+
+  p.en{ font-size:15.5px; line-height:1.7; margin:0 0 10px; color:var(--ink); }
+  p.zh{ font-size:14.5px; line-height:1.85; margin:0; color:#4c5a55; font-family:'Noto Sans TC',sans-serif; }
+  .en b.tag{ background:var(--sky); color:#fff; padding:1px 8px; border-radius:6px; font-weight:700; font-size:14px; }
+
+  .contacts{ display:grid; grid-template-columns:170px 1fr; row-gap:16px; column-gap:18px; }
+  .contacts .role .en{ font-size:13.5px; color:var(--muted); font-weight:600; }
+  .contacts .role .zh{ font-size:12px; color:#9aa9a3; font-family:'Noto Sans TC',sans-serif; margin-top:2px; }
+  .contacts .who b{ display:block; font-size:15px; margin-bottom:2px; }
+  .contacts .who a{ color:var(--sky); font-size:14px; text-decoration:none; font-weight:600; }
+  .contacts .who a:hover{ text-decoration:underline; }
+
+  footer{ display:flex; justify-content:space-between; align-items:center; padding:22px 56px 32px; font-size:13px; color:var(--muted); background:var(--teal-soft); }
+  footer .zh{ font-family:'Noto Sans TC',sans-serif; }
+  .badge{ background:var(--teal-deep); color:#ffe3ba; font-weight:700; font-size:12.5px; padding:8px 16px; border-radius:999px; font-family:'Fredoka',sans-serif; }
+  .badge .zh{ font-family:'Noto Sans TC',sans-serif; font-weight:500; color:#cfe6dd; }
+
+  @media (max-width:680px){
+    .hero{ padding:38px 24px 32px; }
+    .chip{ display:none; }
+    .flow{ padding:20px 24px; }
+    .body{ padding:10px 24px 30px; }
+    section{ grid-template-columns:1fr; }
+    footer{ padding:20px 24px 26px; flex-direction:column; gap:10px; align-items:flex-start; }
+    h1{ font-size:38px; }
+    .contacts{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="hero">
+      <div class="swoosh"></div>
+      <div class="chip c1">day &amp; night</div>
+      <div class="chip c2">tea &amp; toast</div>
+      <div class="chip c3">pen &amp; paper</div>
+      <div class="chip c4">cup &amp; saucer</div>
+
+      <div class="eyebrow">✦ YOU ARE INVITED TO PARTICIPATE <span class="zh">· 誠摯邀請您參與</span></div>
+      <h1>The Power of My English Instinct<span class="zh">我的英語語感力</span></h1>
+      <div class="subtitle">Learn 60 <span class="hl">'X-and-Y'</span> English phrases the way your brain actually reads.
+        <span class="zh">用大腦最自然的閱讀方式，學習 60 個「X-and-Y」英語片語。</span>
+      </div>
+    </div>
+
+    <div class="flow">
+      <div class="step a"><div class="num">1</div><div class="en">Privacy &amp; Consent</div><div class="zh">隱私與同意書</div></div>
+      <div class="arrow">→</div>
+      <div class="step b"><div class="num">2</div><div class="en">Reading Task · 3 parts, 60 phrases</div><div class="zh">閱讀作業（三部分，60題）</div></div>
+      <div class="arrow">→</div>
+      <div class="step c"><div class="num">3</div><div class="en">Questionnaire</div><div class="zh">問卷</div></div>
+    </div>
+
+    <div class="body">
+      <section>
+        <div class="icon aims">🎯</div>
+        <div>
+          <div class="label"><span class="en">Aims</span><span class="zh">研究目的</span></div>
+          <p class="en">This study is part of a Master's dissertation at the University of Nottingham's School of English. It aims to inform and improve educational instruction for Taiwan Mandarin-English bilinguals, helping them acquire useful English phrases and enhance overall English fluency.</p>
+          <p class="zh">本研究為諾丁漢大學英語學院碩士論文之一部分，旨在了解並改善台灣中英雙語者的英語教學方式，協助其習得實用的英語片語並提升整體英語流暢度。</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="icon todo">📖</div>
+        <div>
+          <div class="label"><span class="en">What You Will Do</span><span class="zh">研究內容</span></div>
+          <p class="en">You'll read short sentences on screen at your own pace to help you learn phrases like <b class="tag">tea and toast</b>, presented in three short parts. Afterwards, a quick questionnaire wraps things up. Your accuracy is only used to help educators improve teaching — it's not an intelligence test.</p>
+          <p class="zh">您將以自己的步調在螢幕上閱讀短句，藉此學習像 tea and toast 這樣的片語，共分三個短篇進行。結束後會有一份簡短問卷。您的正確率僅用於協助教育者改善教學方法，並非智力測驗。</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="icon people">✉️</div>
+        <div>
+          <div class="label"><span class="en">Researcher Contact Details</span><span class="zh">研究者聯絡資訊</span></div>
+          <div class="contacts">
+            <div class="role"><div class="en">Primary Investigator</div><div class="zh">主要研究者</div></div>
+            <div class="who"><b>Chih-Chin Chang</b><a href="mailto:aexcc19@nottingham.ac.uk">aexcc19@nottingham.ac.uk</a></div>
+
+            <div class="role"><div class="en">School Ethics Officer</div><div class="zh">學院倫理委員</div></div>
+            <div class="who"><b>Dr. Violeta Sotirova</b><a href="mailto:violeta.sotirova@nottingham.ac.uk">violeta.sotirova@nottingham.ac.uk</a></div>
+
+            <div class="role"><div class="en">Supervisor</div><div class="zh">指導教授</div></div>
+            <div class="who"><b>Dr. Dominic Thompson</b><a href="mailto:dominic.thompson@nottingham.ac.uk">dominic.thompson@nottingham.ac.uk</a></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div>University of Nottingham &nbsp;·&nbsp; School of English<span class="zh"><br>諾丁漢大學 · 英語學院</span></div>
+      <div class="badge">MA Research Study &nbsp;·&nbsp; <span class="zh">碩士研究</span></div>
+    </footer>
+  </div>
+</body>
+</html>
